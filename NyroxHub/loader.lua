@@ -3,7 +3,7 @@ local env = (type(getgenv) == "function") and getgenv() or shared
 -- Configuration
 -- Make sure the path points to the root of your NyroxHub folder on the server.
 local UseGitHub = true -- Auf true setzen, um von GitHub zu laden
-local GitHubURL = "https://raw.githubusercontent.com/Relix78/Script/main/loader.lua/"
+local GitHubURL = "https://raw.githubusercontent.com/Relix78/Script/main/loader.lua"
 local LiveServerURL = "http://127.0.0.1:5500/"
 
 local BaseURL = UseGitHub and GitHubURL or LiveServerURL
