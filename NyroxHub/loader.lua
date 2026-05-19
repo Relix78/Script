@@ -28,6 +28,7 @@ local function Import(path)
 
     local func, err = loadstring(content)
     if not func then
+        warn("[Nyrox] Content received for " .. path .. ":\n" .. content)
         error("[Nyrox] Syntax Error in " .. path .. ": " .. err)
     end
 
