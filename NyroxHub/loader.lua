@@ -16,20 +16,33 @@ env.NyroxLoading = true
 
 -- The Import function enables modular loading of files from the Live Server.
 local function Import(path)
+    -- Verhindert doppelte Slashes in der URL
+    local cleanPath = path
+    if cleanPath:sub(1,1) == "/" then cleanPath = cleanPath:sub(2) end
+    
+    local requestURL = BaseURL .. cleanPath
+    
     local success, content = pcall(function()
-        return game:HttpGet(BaseURL .. path)
+        return game:HttpGet(requestURL)
     end)
 
     if not success then
-        warn("[Nyrox] File could not be loaded: " .. path .. " (Check URL and connection)")
-        print("[Nyrox] Connection Error. Attempted URL: " .. BaseURL .. path)
+        warn("[Nyrox] Netzwerkfehler beim Laden von: " .. cleanPath)
+        print("[Nyrox] URL: " .. requestURL)
         return nil
+    end
+
+    -- GitHub gibt bei fehlenden Dateien den String "404: Not Found" zurück.
+    -- Wir prüfen das hier ab, um den Syntax-Error zu vermeiden.
+    if content == "404: Not Found" or content:find("404") == 1 then
+        error("\n[Nyrox ERROR] Datei nicht gefunden (404)!\nBitte prüfe ob die Datei auf GitHub existiert:\nURL: " .. requestURL)
     end
 
     local func, err = loadstring(content)
     if not func then
-        warn("[Nyrox] Content received for " .. path .. ":\n" .. content)
-        error("[Nyrox] Syntax Error in " .. path .. ": " .. err)
+        warn("[Nyrox] Syntax Fehler in Datei: " .. cleanPath .. "\nFehler: " .. tostring(err))
+        print("[Nyrox] Inhalt vom Server (Vorschau): " .. string.sub(content, 1, 100))
+        error("[Nyrox] loadstring fehlgeschlagen.")
     end
 
     return func()
