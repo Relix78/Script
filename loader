@@ -108,6 +108,14 @@ else
 	getgenv().relix = false
 end
 
+local Config = GoonHub.Import("Assets/Components/Config")
+local GAME_NAME = "MM2" -- Define the game name for config file
+getgenv().GoonHub.Config = {
+    Data = Config.Load(GAME_NAME),
+    Save = function() Config.Save(GAME_NAME, getgenv().GoonHub.Config.Data) end
+}
+
+
 local Success, ScriptContent = pcall(game.HttpGet, game, "https://raw.githubusercontent.com/L5ks8/GoonHub/main/Scripts/" .. ScriptId .. "/" .. ScriptId .. ".lua")
 
 if Success then
