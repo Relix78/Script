@@ -31,7 +31,7 @@ if (identifyexecutor() == "Wave") then
 	end
 end
 
-print("⚠️Detected Executor: " .. identifyexecutor())
+print("⚠️ Detected Executor: " .. identifyexecutor())
 
 local Folder_Configs = {
 	Directory = "goonhub",
@@ -56,21 +56,9 @@ if not isfolder(GameConfigFolder) then
 end
 
 local GameList = {
-	["7326934954"] = { id = "9d3e5f1ab847c260de91f4a72bc8e6d1", devmode = true },  -- 99 Nights in the Forest
-	["9073513091"] = { id = "c71a9e4d5f2b8036a1dc97e84b6f23aa", devmode = true },  -- Anime Apocalypse
-	["4658598196"] = { id = "5e8c1d7f2ab34960cde4719fa862b3d0", devmode = true },  -- Attack on Titan Revolution
-	["9875383684"] = { id = "f2a7c49d81be6035dce91a47b8f26d3e", devmode = true }, -- Be a Brainrot
 	["9787206684"] = { id = "1bc8d7e49fa26305d1e7c4ab986f23dd", devmode = true }, -- Be a Lucky Block
-	["5130394318"] = { id = "7e4a1d9cb82f6350aef471c9d2b68aa1", devmode = true }, -- Bizarre Lineage
 	["994732206"]  = { id = "a4f91c7d2e8b6a53f0d14c9be67231aa", devmode = false }, -- Blox Fruits
-	["7018190066"] = { id = "d5f3a7c1e98b4602cf71da84b2e639ff", devmode = true },  -- Dead Rails
-	["9363735110"] = { id = "3fa7d1c9e4b86205ad71fc48b26e93cc", devmode = true }, -- Escape Tsunami For Brainrots!
-	["3808223175"] = { id = "be47d2a1c8f96305e1da74bc829f6a0d", devmode = true }, -- Jujutsu Infinite
 	["66654135"]   = { id = "6c1e9d4ab827f350de471ac98b2f63aa", devmode = false },  -- Murder Mystery 2
-	["9186719164"] = { id = "2d7a4c1f9be86035ac71de48b29f61ee", devmode = true },  -- Sailor Piece
-	["1511883870"] = { id = "f9c1d7a4be826305de471fa98b2c63dd", devmode = true }, -- Shindo Life
-	["7671049560"] = { id = "a7d4c1e9fb826350de14ac78b29f63aa", devmode = true }, -- The Forge
-	["245662005"]  = { id = "4c1e7d9ab826f350de471ac98b2f63bc", devmode = true },  -- Jailbreak
 	["9792947201"] = { id = "8f3b2c7d1a9e4f60bc2d5a7e18c4d9f1", devmode = false }  -- Slime RNG
 }
 
@@ -122,5 +110,4 @@ if Success then
 		})
 	end
 end
-
 
